@@ -1,5 +1,5 @@
 class PolyTreeNode
-  attr_reader :value, :parent
+  attr_reader :value, :parent, :children
 
   # TODO Phase 1: Implement a PolyTreeNode class
   # Write a class with four methods:
@@ -10,10 +10,6 @@ class PolyTreeNode
     @value = value
     @parent = nil
     @children = []
-  end
-
-  def children
-    @children
   end
 
   # Write a #parent= method which
@@ -85,7 +81,7 @@ class PolyTreeNode
     # If a node's value matches the target value, return the node.
     # If not, iterate through the #children and repeat.
   def dfs(target_value)
-
+    
   end
 
   # Write a #bfs(target_value) method to implement breadth first search.
