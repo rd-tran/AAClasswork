@@ -19,8 +19,15 @@
 # rather serious has gone wrong and our code should stop executing.
 
 def convert_to_int(str)
-  Integer(str)
+  begin
+    Integer(str)
+  rescue ArgumentError => e
+    puts "#{e}"
+    return nil
+  end
 end
+
+# raise ArgumentError.new "whatever message you want inside this string"
 
 # ? RECAP
 # Many times we will want to 'protect' the user from potential errors our code
@@ -65,10 +72,13 @@ end
 
 def feed_me_a_fruit
   puts "Hello, I am a friendly monster. :)"
-
-  puts "Feed me a fruit! (Enter the name of a fruit:)"
-  maybe_fruit = gets.chomp
-  reaction(maybe_fruit) 
+  begin
+    puts "Feed me a fruit! (Enter the name of a fruit:)"
+    maybe_fruit = gets.chomp
+    reaction(maybe_fruit) 
+  rescue StandardError
+    retry if maybe_fruit == "coffee"
+  end
 end
 
 # ? RECAP
@@ -108,6 +118,9 @@ end
 
 class BestFriend
   def initialize(name, yrs_known, fav_pastime)
+    raise StandardError.new "You haven't been friends long enough" if yrs_known < 5
+    raise ArgumentError.new "Wrong argument" if name.length == 0 || fav_pastime.length == 0
+
     @name = name
     @yrs_known = yrs_known
     @fav_pastime = fav_pastime
