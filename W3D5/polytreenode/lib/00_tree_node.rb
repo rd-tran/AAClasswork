@@ -1,3 +1,5 @@
+require 'byebug'
+
 class PolyTreeNode
   attr_reader :value, :parent, :children
 
@@ -81,7 +83,14 @@ class PolyTreeNode
     # If a node's value matches the target value, return the node.
     # If not, iterate through the #children and repeat.
   def dfs(target_value)
-    
+    return self if value == target_value
+
+    children.each do |child_node|  
+      result = child_node.dfs(target_value)
+      return result unless result.nil?
+    end
+
+    nil
   end
 
   # Write a #bfs(target_value) method to implement breadth first search.
@@ -91,8 +100,32 @@ class PolyTreeNode
       # Remove the first node from the queue,
       # Check its value,
       # Push the node's children to the end of the array.
-  def bfs(target_value)
+  def bfs(target_value, queue=[])
+    queue << self
 
+    until queue.empty?
+      node = queue.shift
+      return node if node.value == target_value
+
+      queue += node.children
+    end
+
+    nil
+
+    # * Recursive solution
+    # queue.unshift(self)
+    #
+    # until queue.empty?
+    #   node = queue.shift
+    #   return node if node.value == target_value
+    #
+    #   queue += node.children
+    #   next_node = queue.shift
+    #   result = next_node.bfs(target_value, queue) unless next_node.nil?
+    #   return result unless result.nil?
+    # end
+    #
+    # nil
   end
 
   # Prove to yourself that this will check the nodes in the right order.
