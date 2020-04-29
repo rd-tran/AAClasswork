@@ -32,7 +32,6 @@ class Piece
 
   end
 
-
   # * Define move_into_check?(end_pos)
   # to check if a given move will put you in check
   def move_into_check?(end_pos)
