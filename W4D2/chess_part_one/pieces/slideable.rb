@@ -6,7 +6,7 @@ module Slideable
     [1, 0],
     [0, -1],
     [0, 1]
-  ]
+  ].freeze
 
   # * Initialize class constant DIAGONAL_DIRS
   # to contain the diagonal movements
@@ -16,7 +16,7 @@ module Slideable
     [-1,1],
     [1,-1],
     [1,1]
-  ]
+  ].freeze
 
   # * Define horizontal_dirs
   # to return the HORIZONTAL_DIRS array
@@ -44,7 +44,9 @@ module Slideable
       # pass dx and dy into grow_unblocked_moves
     
     poss_moves = []
-    move_dirs.each { |dy, dx| poss_moves += grow_unblocked_moves_in_dir(dx, dy) }
+    move_dirs.each do |dy, dx|
+      poss_moves += grow_unblocked_moves_in_dir(dx, dy)
+    end
     poss_moves
   end
   
