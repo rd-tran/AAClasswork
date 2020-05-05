@@ -37,6 +37,7 @@ class LinkedList
   end
 
   def last
+    @tail.prev
   end
 
   def empty?
@@ -44,18 +45,40 @@ class LinkedList
   end
 
   def get(key)
+    node = @head.next
+    node = node.next until node.key == key || node == @tail
+    node.val
   end
 
   def include?(key)
+    found = get(key)
+    found ? true : false
   end
 
   def append(key, val)
+    new_node = Node.new(key, val)
+
+    sec_last = @tail.prev
+    sec_last.next = new_node
+
+    @tail.prev = new_node
+
+    new_node.prev = sec_last
+    new_node.next = @tail
   end
 
   def update(key, val)
   end
 
   def remove(key)
+    node = @head.next
+    until node.key == key
+      node = node.next
+      return if node == @tail
+    end
+    
+    node.prev.next = node.next
+    node.next.prev = node.prev
   end
 
   def each
