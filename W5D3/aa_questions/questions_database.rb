@@ -49,3 +49,16 @@
   # so far works by jumping into pry. Load the files you want to test and call
   # your new methods. Check that your queries return the correct results and
   # that those results are Ruby objects.
+
+require 'sqlite3'
+require 'singleton'
+
+class QuestionsDB < SQLite3::Database
+  include Singleton
+
+  def initialize
+    super("./questions.db")
+    self.type_translation = true
+    self.results_as_hash = true
+  end
+end

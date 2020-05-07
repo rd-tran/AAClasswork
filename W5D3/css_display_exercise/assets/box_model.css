@@ -1,9 +1,27 @@
 /* Introduction to Cascading Style Sheets */
 
+body > section {
+  width: 700px;
+
+}
+
+body > aside {
+  width: 180px;
+}
+
 body {
   /* If the user cannot load the Arial font, the sans-serif font is used */
   font-family: Arial, sans-serif;
   background-color: #FEFFF1;
+  width: 900px;
+  margin: 0 auto;
+}
+nav li a {
+  display: inline-block;
+  padding: 20px;
+}
+nav li {
+  display: inline-block;
 }
 
 h1 {
@@ -24,6 +42,7 @@ ul li a, figcaption a {
 /* This selector selects only IMMEDIATE (1 level deep) image element children
 of the header element */
 header > img {
+  display: inline;
   width: 100px;
 }
 
