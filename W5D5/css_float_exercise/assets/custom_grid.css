@@ -1,0 +1,10 @@
+/* PUT FLUID GRID CODE HERE */
+.grid > aside {
+  float: left;
+  width: 25%;
+}
+
+.grid > section {
+  float: right;
+  width: 75%;
+}
