@@ -26,11 +26,11 @@ def large_countries
   # 200 million. 200 million is 200,000,000 (eight zeros).
   execute(<<-SQL)
     SELECT
-      name
+      countries.name
     FROM
       countries
     WHERE
-      population >= 200000000
+      countries.population >= 200000000
   SQL
 end
 
@@ -39,12 +39,12 @@ def high_population_gdps
   # of at least 200 million.
   execute(<<-SQL)
     SELECT
-      name,
-      gdp / population AS per_capita_gdp
+      countries.name,
+      countries.gdp / countries.population AS per_capita_gdp
     FROM
       countries
     WHERE
-      population >= 200000000
+      countries.population >= 200000000
   SQL
 end
 
@@ -54,12 +54,12 @@ def population_in_millions
   # millions.
   execute(<<-SQL)
     SELECT
-      name,
-      population / 1000000 AS pop_million
+      countries.name,
+      countries.population / 1000000 AS population_in_mil
     FROM
       countries
     WHERE
-      continent = 'South America'
+      countries.continent = 'South America'
   SQL
 end
 
@@ -67,12 +67,12 @@ def name_and_population
   # Show the name and population for 'France', 'Germany', and 'Italy'
   execute(<<-SQL)
     SELECT
-      name,
-      population
+      countries.name,
+      countries.population
     FROM
       countries
     WHERE
-      name IN ('France', 'Germany', 'Italy')
+      countries.name IN ('France', 'Germany', 'Italy')
   SQL
 end
 
@@ -80,10 +80,10 @@ def united_we_stand
   # Show the countries that have a name that includes the word 'United'
   execute(<<-SQL)
     SELECT
-      name
+      countries.name
     FROM
       countries
     WHERE
-      name LIKE 'United%'
+      countries.name LIKE 'United %'
   SQL
 end

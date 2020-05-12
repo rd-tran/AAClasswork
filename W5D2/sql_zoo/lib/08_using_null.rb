@@ -37,7 +37,7 @@ def all_teachers_join
     FROM
       teachers
     LEFT JOIN
-      depts ON teachers.dept_id = depts.id
+      depts ON depts.id = teachers.dept_id
   SQL
 end
 
@@ -52,7 +52,7 @@ def all_depts_join
     FROM
       depts
     LEFT JOIN
-      teachers ON teachers.dept_id = depts.id
+      teachers ON depts.id = teachers.dept_id
   SQL
 end
 
@@ -74,6 +74,13 @@ def teachers_and_depts
   # department name. Use the string 'None' where there is no
   # department.
   execute(<<-SQL)
+    SELECT
+      teachers.name,
+      COALESCE(depts.name, 'None')
+    FROM
+      teachers
+    LEFT JOIN
+      depts ON depts.id = teachers.dept_id
   SQL
 end
 
@@ -82,6 +89,11 @@ def num_teachers_and_mobiles
   # mobile phones.
   # NB: COUNT only counts non-NULL values.
   execute(<<-SQL)
+    SELECT
+      COUNT(teachers.id),
+      COUNT(teachers.mobile)
+    FROM
+      teachers
   SQL
 end
 
@@ -90,6 +102,15 @@ def dept_staff_counts
   # the number of staff. Structure your JOIN to ensure that the
   # Engineering department is listed.
   execute(<<-SQL)
+    SELECT
+      depts.name,
+      COUNT(teachers.id)
+    FROM
+      depts
+    LEFT JOIN
+      teachers ON depts.id = teachers.dept_id
+    GROUP BY
+      depts.name
   SQL
 end
 
@@ -97,6 +118,16 @@ def teachers_and_divisions
   # Use CASE to show the name of each teacher followed by 'Sci' if
   # the teacher is in dept 1 or 2 and 'Art' otherwise.
   execute(<<-SQL)
+    SELECT
+      teachers.name,
+      CASE
+      WHEN teachers.dept_id IN (1, 2) THEN
+        'Sci'
+      ELSE
+        'Art'
+      END
+    FROM
+      teachers
   SQL
 end
 
@@ -105,6 +136,17 @@ def teachers_and_divisions_two
   # the teacher is in dept 1 or 2, 'Art' if the dept is 3, and
   # 'None' otherwise.
   execute(<<-SQL)
+    SELECT
+      teachers.name,
+      CASE
+      WHEN teachers.dept_id IN (1, 2) THEN
+        'Sci'
+      WHEN teachers.dept_id = 3 THEN
+        'Art'
+      ELSE
+        'None'
+      END
+    FROM
+      teachers
   SQL
 end
-
