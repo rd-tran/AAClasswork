@@ -1,0 +1,47 @@
+<!--
+<form action=<%#= cats_url %> method="post">
+  <label>Name:
+    <input type="text" name="cat[name]">
+  </label>
+    <br>
+
+  <label>Sex:
+    <br>
+    <label>Male
+        <input type="radio" name="cat[sex]" value="M">
+    </label>
+    <br>
+
+    <label>Female
+        <input type="radio" name="cat[sex]" value="F">
+    </label>    
+  </label>
+  <br>
+
+  <label>Color:
+    <select name="cat[color]">
+      <option value="" selected disabled>-- Select Color --</option>                        
+      <option value="Black">Black</option>
+      <option value="Orange">Orange</option>
+      <option value="Brown">Brown</option>
+      <option value="White">White</option>
+      <option value="Red">Red</option>
+    </select>
+  </label>
+  <br>
+
+  <label>Birth Date:
+      <input type="date" name="cat[birth_date]">
+  </label>
+  <br>
+
+  <label>Description:
+      <textarea name="cat[description]"></textarea>
+  </label>
+  <br>
+
+  <input type="submit" value="Create Cat!">
+</form>
+-->
+
+<%= render 'forms', cat: @cat, type: :new %>

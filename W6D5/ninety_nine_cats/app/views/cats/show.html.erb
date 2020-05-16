@@ -1,0 +1,16 @@
+<table>
+  <thead> 
+    <tr>
+      <th>Attributes</th> 
+      <th>Values</th>
+    </tr>
+  </thead>
+  
+  <% @cat.attributes.each do |attribute, value| %>
+    <tr>
+      <td><%= attribute %></td>
+      <td><%= value %></td>
+    </tr>
+  <% end %>
+
+</table>
