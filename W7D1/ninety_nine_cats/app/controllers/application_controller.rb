@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     session[:session_token] = user.reset_session_token!
   end
 
+  def require_login
+    redirect_to new_session unless current_user
+  end
+
   def prevent_new
     redirect_to cats_url if current_user
   end

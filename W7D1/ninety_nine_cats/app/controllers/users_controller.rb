@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :prevent_new
+  before_action :require_login, except: :new
   
   def new
     @user = User.new
