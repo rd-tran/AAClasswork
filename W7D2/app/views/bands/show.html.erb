@@ -1,0 +1,7 @@
+<h2><%= @band.name %></h2>
+
+<ul>
+  <% @band.attributes.each do |attribute, value| %>
+    <li><%= attribute %>: <%= value %></li>
+  <% end %>
+</ul>

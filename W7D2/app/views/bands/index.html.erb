@@ -1,0 +1,9 @@
+<h2>Currently viewing all bands:</h2>
+
+<% @bands.each do |band| %>
+  <ul>
+    <li><%= band.name %></li>
+    <li><%= band.created_at %></li>
+    <li><%= band.updated_at %></li>
+  </ul>
+<% end %>
