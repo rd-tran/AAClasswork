@@ -1,0 +1,45 @@
+@import "../base/colors.scss";
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  border-bottom: 1px solid $light-gray;
+}
+
+.left-nav > ul,
+.right-nav > ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.left-nav > ul > li {
+  margin: 10px;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.right-nav > ul > li {
+  margin: 10px 1px;
+}
+
+.right-nav > ul > li:last-of-type {
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.left-nav > ul > li:hover,
+.right-nav > ul > li:last-of-type:hover {
+  background-color: $lightest-gray;
+	transition: ease .5s;
+}
+
+.left-nav span {
+  align-content: center;
+}
+
+
+// .right-nav i {
+
+// }
