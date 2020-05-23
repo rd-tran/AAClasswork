@@ -3889,3 +3889,74 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 37ms (Views: 34.1ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/subs/1/posts/new" for ::1 at 2020-05-22 18:17:28 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ryantran/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by PostsController#new as HTML
+  Parameters: {"sub_id"=>"1"}
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (202.0ms)
+Completed 500 Internal Server Error in 243ms (ActiveRecord: 8.8ms)
+
+
+
+ActionView::Template::Error - undefined local variable or method `param' for #<#<Class:0x00007f978a129d90>:0x00007f97d9d40198>
+Did you mean?  params:
+  app/views/posts/new.html.erb:26:in `view template'
+  app/controllers/posts_controller.rb:12:in `new'
+
+Started POST "/__better_errors/40cabefe5d45c509/variables" for ::1 at 2020-05-22 18:17:29 -0700
+Started GET "/subs/1" for ::1 at 2020-05-22 18:17:55 -0700
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mSub Load (0.8ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/subs/show.html.erb:1
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."sub_id" = $1[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.html.erb:8
+  Rendered subs/show.html.erb within layouts/application (50.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qhwXrpWo_3jc7b1bazmQtQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 249ms (Views: 230.0ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/subs/1/posts/new" for ::1 at 2020-05-22 18:17:56 -0700
+Processing by PostsController#new as HTML
+  Parameters: {"sub_id"=>"1"}
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qhwXrpWo_3jc7b1bazmQtQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 38ms (Views: 36.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subs/1/posts/new" for ::1 at 2020-05-22 18:19:30 -0700
+Processing by PostsController#new as HTML
+  Parameters: {"sub_id"=>"1"}
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qhwXrpWo_3jc7b1bazmQtQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 49ms (Views: 47.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts" for ::1 at 2020-05-22 18:20:22 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"YJwT9cMSndaLbb5Z/XXSuse0VG/W7yXbR59OSR9zxynGDer6JM2Nb/ha8yisituUwQlFBi4OwHUDUveseGJOng==", "post"=>{"title"=>"Tried to bite momma", "url"=>"", "content"=>"She picked him up off of Katey's bed, and he tried to bite her", "sub_id"=>"1"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qhwXrpWo_3jc7b1bazmQtQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:19
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:19
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "url", "content", "sub_id", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Tried to bite momma"], ["url", ""], ["content", "She picked him up off of Katey's bed, and he tried to bite her"], ["sub_id", 1], ["author_id", 2], ["created_at", "2020-05-23 01:20:22.530243"], ["updated_at", "2020-05-23 01:20:22.530243"]]
+  ↳ app/controllers/posts_controller.rb:19
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:19
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 52ms (Views: 35.7ms | ActiveRecord: 3.5ms)
+
+

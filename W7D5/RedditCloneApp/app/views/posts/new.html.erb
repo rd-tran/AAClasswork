@@ -18,12 +18,12 @@
     <br>
 
     <label>Content:
-      <input type="text" name="post[content]" value="<%= @post.content %>">
+      <textarea name="post[content]"><%= @post.content %></textarea>
     </label>
     <br>
     <br>
 
-    <input type="hidden" name="post[sub_id]" value="<%= @post.sub_id %>">
+    <input type="hidden" name="post[sub_id]" value="<%= params[:sub_id] %>">
 
     <button>Create</button>
 </form>
