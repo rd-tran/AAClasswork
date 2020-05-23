@@ -1,0 +1,14 @@
+<% @sub ||= Sub.find(params[:id]) %>
+
+<h2><%= @sub.title %></h2>
+
+<a href="<%= new_sub_post_url(@sub) %>">Create New Post</a>
+
+<h3>Posts:</h3>
+<% @sub.posts.each do |post| %>
+  <ul>
+      <li>
+        <a href="<%= post_url(post) %>"><%= post.title %></a>
+      </li>
+  </ul>
+<% end %>

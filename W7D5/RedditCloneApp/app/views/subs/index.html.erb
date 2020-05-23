@@ -1,0 +1,14 @@
+<br>
+<a href="<%= new_sub_url %>">Create New Subreddit</a>
+
+<h2>All Subs</h2>
+
+<% @subs.each do |sub| %>
+  <a href="<%= sub_url(sub) %>"><%= sub.title %></a>
+
+  <ul>
+    <li>
+      <a href="<%= edit_sub_url(sub) %>">Edit</a>
+    </li>
+  </ul>
+<% end %>

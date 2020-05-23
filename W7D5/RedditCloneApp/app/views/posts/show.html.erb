@@ -1,0 +1,11 @@
+<% @post ||= Post.find(params[:id]) %>
+
+<h2><%= @post.title %></h2>
+
+<% @post.attributes.each do |key, val| %>
+  <ul><%= key.capitalize %>:
+    <li>
+      <%= val %>
+    </li>
+  </ul>
+<% end %>

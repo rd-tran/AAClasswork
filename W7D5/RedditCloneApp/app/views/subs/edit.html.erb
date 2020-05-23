@@ -1,0 +1,22 @@
+<h2>Update Subreddit</h2>
+
+<% @sub ||= Sub.find(params[:id]) %>
+
+<form action="<%= sub_url %>" method="POST">
+  <input type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+
+  <input type="hidden" name="_method" value="PATCH">
+  <label>
+    <input type="text" name="sub[title]" value="<%= @sub.title %>">
+  </label>
+  <br>
+  <br>
+
+  <textarea name="sub[description]"><%= @sub.description %></textarea>
+  <br>
+  <br>
+
+  <button>Update</button>
+</form>
