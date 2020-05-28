@@ -1,19 +1,15 @@
-/** range(start, end)
- * receives a start and end value,
- * returns an array from start up to end
- * 
- * range(0, 1) === [0]
- * range(0, 2) === [0, 1]
- * range(0, 3) === [0, 1, 2]
- * base
- */
 function range(start, end) {
+  if (start >= end) {    
+    return [];
+  }
 
-    if (start >= end) {    
-        return [];
-    }                                                                           //range(0,3) range(1,3) range(2,3) range(3,3)
-    
-    return [start].concat(range(start + 1, end));                               //range(2,3) range(3,3)   
+  // My solution
+  // return [start].concat(range(start + 1, end)); 
+
+  // Their solution
+  arr = range(start, end - 1);
+  arr.push(end - 1);
+  return arr
 }
 
 // console.log(range(0, 3));
@@ -52,22 +48,25 @@ function exponent2(base, exp) {
 
 // console.log(exponent2(2, 5));
 
-/**
- * 1 1 2 3 5 8 13
- * 
- */
 function fibonacci(n) {
-    if (n === 1) {
-        return [1];
-    } else if (n === 2) {
-        return [1,1]; 
-    } else if (n < 1) {
-        return [];
+    // My base case
+    // if (n === 1) {
+    //   return [1];
+    // } else if (n === 2) {
+    //   return [1,1]; 
+    // } else if (n < 1) {
+    //   return [];
+    // }
+
+    // Solutions base case
+    if (n < 3) {
+      return [1, 1].slice(0, n)
     }
 
     let fibSeries = fibonacci(n - 1);
     let prevFib = fibSeries[fibSeries.length - 1];
     let prevFib2 = fibSeries[fibSeries.length - 2];
+
     fibSeries.push(prevFib + prevFib2);
     return fibSeries;
 }
@@ -75,29 +74,47 @@ function fibonacci(n) {
 // console.log(fibonacci(5));
 
 function deepDup(arr) {
-    let duplicates = [];
+  // My way
+  // let duplicates = [];
 
-    for (let i = 0; i < arr.length; i++) {
-        let ele = arr[i];
-        if (ele instanceof Array) {
-            let subArr = deepDup(ele);
-            duplicates = duplicates.concat(subArr);
-        } else {
-            duplicates.push(ele);
-        }
-    }
-    return duplicates;
+  // for (let i = 0; i < arr.length; i++) {
+  //   let ele = arr[i];
+  //   if (ele instanceof Array) {
+  //     let subArr = deepDup(ele);
+  //     duplicates.push(subArr);
+  //   } else {
+  //     duplicates.push(ele);
+  //   }
+  // }
+  // return duplicates;
+
+  // Solutions
+  if (!(arr instanceof Array)) {
+    return arr;
+  }
+
+  return arr.map(el => {
+    return deepDup(el);
+  })
 }
 
-/**
- * duplicates = []
- * [1, [2,3]]
- * duplicates = [1]
- * duplicates = [1, [2,3]]
- * 
- * duplicates = []
- * [2,3]
- * duplicates = [2,3]
- */
+// console.log(deepDup([1,2,[1,[2,3]]]));
 
-console.log(deepDup([1,2,[1,[2,3]]]));
+function bsearch(nums, target, start = 0, end = nums.length) {
+  if (nums.length === 0 || target < nums[0] || target > nums.slice(-1)) {
+    return -1;
+  }
+
+  mid = Math.floor((end - start) / 2) + start;
+  midEle = nums[mid];
+
+  if (target === midEle) {
+    return mid;
+  } else if (target < midEle) {
+    return bsearch(nums, target, start, mid - 1);
+  } else if (target > midEle) {
+    return bsearch(nums, target, mid + 1, end);
+  }
+}
+
+// console.log(bsearch([0,1,2,3,4,5,6,7], 4));
