@@ -214,7 +214,7 @@ Board.prototype.print = function () {
   }
 
   footer = [...Array(8).keys()].join('  ');
-  console.log(`  ${'-'.repeat(25)}`);
+  console.log(`  ${'-'.repeat(26)}`);
   console.log(`    ${footer}`);
 }
 
