@@ -4,7 +4,7 @@
 
 //   return function bound() {
 //     let moreArgs = Array.from(arguments);
-//     func.apply(context, args.concat(moreArgs));
+//     return func.apply(context, args.concat(moreArgs));
 //   };
 // }
 
@@ -12,7 +12,7 @@ Function.prototype.myBind = function(context, ...args) {
   let func = this;
 
   return function bound(...moreArgs) {
-    func.apply(context, args.concat(moreArgs));
+    return func.apply(context, args.concat(moreArgs));
   }
 }
 
