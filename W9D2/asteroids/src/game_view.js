@@ -7,12 +7,12 @@ function GameView(ctx) {
 }
 
 GameView.prototype.start = function() {
-    this.bindKeyHandlers();
+  this.bindKeyHandlers();
 
-    setInterval(() => {
-        this.game.draw(this.ctx);
-        this.game.step();
-    }, 20);
+  setInterval(() => {
+    this.game.draw(this.ctx);
+    this.game.step();
+  }, 20);
 }
 
 GameView.prototype.bindKeyHandlers = function() {
@@ -29,6 +29,9 @@ GameView.prototype.bindKeyHandlers = function() {
   });
   key('right', () => {
     ship.power([1, 0]);
+  });
+  key('space', () => {
+    ship.fireBullet();
   });
 }
 

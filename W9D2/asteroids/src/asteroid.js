@@ -23,6 +23,7 @@ Asteroid.prototype.collideWith = function(otherObj) {
   } else {
     this.game.remove(this);
     this.game.remove(otherObj);
+    return true;
   }
 }
 
