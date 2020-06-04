@@ -1,0 +1,53 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  width: 90px;
+  height: 90px;
+  border-left: 10px solid black;
+  border-top: 10px solid black;
+  background-color: #808080;
+}
+
+li:nth-of-type(3n) {
+  border-right: 10px solid black;
+}
+
+li:nth-of-type(7), li:nth-of-type(8), li:nth-of-type(9){
+  border-bottom: 10px solid black;
+}
+
+li:hover {
+  background-color: yellow;
+}
+
+li.clicked {
+  font-size: 90px;
+  font-weight: 500;
+  background-color: white;
+}
+
+li.winner {
+  color: white;
+  background-color: green;
+}
+
+li.loser {
+  color: red;
+  background-color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+.hidden-button {
+  display: none;
+}

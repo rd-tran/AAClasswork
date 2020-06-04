@@ -1,0 +1,9 @@
+/* PHASE 9: Forms */
+
+.content-main {
+    display: flex;
+}
+
+.post-form {
+    display: block;
+}
