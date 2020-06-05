@@ -1,0 +1,20 @@
+/* PHASE 11: Icons */
+.icon {
+  display: inline-block;
+  width: 25px;
+  height: 0px;
+  overflow: hidden;
+  padding-top: 25px;
+  /* 
+  Needed to use the actual background size of the image, so that the
+  background-position property would work the way we wanted
+  */
+  background-size: 25px 250px;
+}
+
+.icon-comment {
+
+    background-image: url('../images/sprite.png');
+    background-position: top 0px left 0px;
+}
+
