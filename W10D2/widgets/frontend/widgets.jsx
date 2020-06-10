@@ -4,9 +4,9 @@ import Clock from './clock';
 import Tabs from './tabs';
 
 const tabsArr = [
-  { title: "tab1", content: "this is the first tab" },
-  { title: "tab2", content: "this is the second tab" },
-  { title: "tab3", content: "this is the third tab" }
+  { title: "tab1", content: "This is the first tab" },
+  { title: "tab2", content: "This is the second tab" },
+  { title: "tab3", content: "This is the third tab" }
 ]
 const Root = function() {
   return (

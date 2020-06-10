@@ -24,6 +24,7 @@ export default class Tabs extends React.Component {
         <div>
           <Header
             tabs={this.props.tabs}
+            selected={this.state.selected}
             selectTab={this.selectTab.bind(this)}/>
 
           <article id="tab-content">

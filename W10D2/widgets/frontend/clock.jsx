@@ -28,17 +28,18 @@ export default class Clock extends React.Component {
     return (
       <div id="clock">
         <h1>Clock:</h1>
-        <br/>
 
-        <p key="time">
-          <span>Time:</span>
-          <span>{hours}:{minutes}:{seconds}</span>
-        </p>
-        
-        <p key="date">
-          <span>Date:</span>
-          <span>{date}</span>
-        </p>
+        <div>
+          <p key="time">
+            <span>Time:</span>
+            <span>{hours}:{minutes}:{seconds}</span>
+          </p>
+          
+          <p key="date">
+            <span>Date:</span>
+            <span>{date}</span>
+          </p>
+        </div>
       </div>
     );
   }

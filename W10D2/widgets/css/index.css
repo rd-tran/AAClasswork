@@ -4,29 +4,57 @@ body {
   font-size: 30px;
 }
 
+h1 {
+  margin: 50px 0px 15px 0px;
+}
+
 #clock {
   font-family: "Metal Mania", cursive;
   width: 500px;
+}
+
+#clock > div {
   border: 5px solid silver;
   background-color: forestgreen;
 }
 
 #clock p {
   display: flex;
+  margin: 20px 5px 20px 5px;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
 #tabs {
-    display: flex;
-    justify-content: space-between;
-    border: 5px solid turquoise;
+  display: flex;
+}
+
+#tabs li {
+  width: 33.33%;
+  display: flex;
+  justify-content: center;
+  background-color: lightblue;
+  border-top: 5px solid turquoise;
+  border-left: 5px solid turquoise;
+  border-right: 5px solid turquoise;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#tabs li:hover {
+  color: white;
+  background-color: turquoise;
 }
 
 #tab-content {
-    display: flex;
-    justify-content: center;
-    height: 200px;
-    border: 5px solid maroon;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  background-color: lightblue;
+  border: 5px solid turquoise;
+}
+
+.clicked {
+  font-weight: 900;
 }

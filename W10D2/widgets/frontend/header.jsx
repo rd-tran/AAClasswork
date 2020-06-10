@@ -1,13 +1,14 @@
 import React from 'react';
 
-const Header = ({ tabs, selectTab }) => (
+const Header = ({ tabs, selected, selectTab }) => (
   <ul id="tabs">
     {
       tabs.map( (tab, idx) => {
         return (
-          <h1
+          <li
             key={idx}
-            onClick={ selectTab(idx) }>{tab.title}</h1>
+            className={ idx === selected ? 'clicked' : 'unclicked'}
+            onClick={ selectTab(idx) }>{tab.title}</li>
           )
       })
     }
