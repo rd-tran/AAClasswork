@@ -1,0 +1,38 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 270px;
+  margin: auto;
+}
+
+.tile {
+  background-color: lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  box-sizing: border-box;
+  border-style: outset;
+}
+
+.clicked {
+  border-style: inset;
+}
+
+.modal {
+  display: none;
+}
+
+.modal.is-open {
+  display: block;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
