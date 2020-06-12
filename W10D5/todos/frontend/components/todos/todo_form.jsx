@@ -29,7 +29,7 @@ class TodoForm extends React.Component {
     }
 
     handleSubmit(e) {
-
+      
     }
 
     render() {
@@ -65,7 +65,7 @@ class TodoForm extends React.Component {
           </label>
           <br/>
 
-          <button>Add Item</button>
+          <button>Create Todo!</button>
         </form>
       )
     }
