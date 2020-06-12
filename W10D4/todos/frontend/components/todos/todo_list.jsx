@@ -1,9 +1,8 @@
 import React from 'react';
 import TodoListItem from './todo_list_item'
 import TodoForm from './todo_form'
-import { receiveTodo } from '../../actions/todo_actions'
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, receiveTodo }) => {
   const items = todos.map( (ele) => {
     return <TodoListItem key={ele.id} todo={ele}/>; 
   });

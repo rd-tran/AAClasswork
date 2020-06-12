@@ -29,7 +29,14 @@ class TodoForm extends React.Component {
     }
 
     handleSubmit(e) {
-
+      e.preventDefault();
+      this.props.receiveTodo(this.state);
+      this.setState({
+        id: uniqueId(),
+        title: '',
+        body: '',
+        done: false
+      });
     }
 
     render() {
@@ -65,7 +72,7 @@ class TodoForm extends React.Component {
           </label>
           <br/>
 
-          <button>Add Item</button>
+          <button>Create Todo!</button>
         </form>
       )
     }
