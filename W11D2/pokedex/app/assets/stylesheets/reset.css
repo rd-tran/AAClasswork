@@ -1,0 +1,44 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	list-style-type: none;
+	text-decoration: none;
+  vertical-align: baseline;
+}
+
+.pokedex {
+	display: flex;
+	justify-content: space-between;
+}
+
+.pokemon-index-list {
+	margin: 20px 50px;
+	width: 33%;
+	display: flex;
+	flex-direction: column;
+}
+
+.pokemon-detail {
+	margin: 20px 50px;
+	width: 66%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.pokemon-detail > img {
+	width: 100%;
+}
